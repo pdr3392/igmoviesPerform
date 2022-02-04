@@ -1,9 +1,10 @@
 import { Button } from "./Button";
+import { Header } from "./Header";
 
 interface SideBarProps {
   genres: Array<{
     id: number;
-    name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+    name: "action" | "comedy" | "documentary" | "drama" | "horror" | "family";
     title: string;
   }>;
   selectedGenreId: number;
@@ -13,14 +14,14 @@ interface SideBarProps {
 export function SideBar({
   genres,
   selectedGenreId,
-  buttonClickCallback
+  buttonClickCallback,
 }: SideBarProps) {
   return (
     <nav className="sidebar">
-      <span>Watch<p>Me</p></span>
+      <Header />
 
       <div className="buttons-container">
-        {genres.map(genre => (
+        {genres.map((genre) => (
           <Button
             key={String(genre.id)}
             title={genre.title}
@@ -30,7 +31,6 @@ export function SideBar({
           />
         ))}
       </div>
-
     </nav>
-  )
+  );
 }
